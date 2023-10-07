@@ -1,4 +1,4 @@
-module.exports = class MyLog {
+module.exports.MyLog = class MyLog {
   constructor() {
   }
   
