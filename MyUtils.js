@@ -1,4 +1,4 @@
-exports.MyLog = class MyLog {  
+module.exports = class MyLog {  
   info(message_) {
     console.log(message_);
   }
