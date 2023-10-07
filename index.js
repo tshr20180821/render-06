@@ -6,7 +6,7 @@ const logger = mu.get_logger();
 
 app.get('/', (req, res) => {
   res.send('test');
-  logger.info('INFO message');
+  logger.info('INFO message 2');
 });
 
 app.listen(8080, () => {
