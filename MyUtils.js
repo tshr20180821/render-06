@@ -1,4 +1,7 @@
-module.exports = class MyLog {  
+module.exports = class MyLog {
+  constructor() {
+  }
+  
   info(message_) {
     console.log(message_);
   }
