@@ -4,6 +4,8 @@ class MyLog {
   
   info(message_) {
     console.log(message_);
+    let e = new Error();
+    console.log(e.stack);
   }
   
   warn(message_) {
