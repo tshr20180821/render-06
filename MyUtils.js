@@ -6,7 +6,7 @@ class MyLog {
     console.log(message_);
     try {
       var e = new Error();
-      console.log(e.stack);
+      // console.log(e.stack);
     } catch (err) {
       console.log(err.toString());
     }
