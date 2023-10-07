@@ -3,12 +3,10 @@ const app = express();
 
 const mu = require('./MyUtils.js');
 const logger = mu.get_logger();
-const myLog = mu.MyLog;
 
 app.get('/', (req, res) => {
   res.send('test');
-  const mylogger = new myLog();
-  mylogger.info('INFO message');
+  logger.info('INFO message');
 });
 
 app.listen(8080, () => {
