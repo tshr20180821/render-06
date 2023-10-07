@@ -1,9 +1,4 @@
-module.exports.get_logger = function ()
-{
-  return null;
-}
-
-module.exports.MyLog = class MyLog {
+class MyLog {
   constructor() {
   }
   
@@ -15,4 +10,9 @@ module.exports.MyLog = class MyLog {
     console.log(message_);
   }
 }
-// module.exports.MyLog = MyLog;
+
+module.exports.get_logger = function ()
+{
+  return new MyLog();
+}
+
