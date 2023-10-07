@@ -1,4 +1,4 @@
-class MyLog {
+module.exports = class MyLog {
   constructor() {
   }
   
@@ -10,4 +10,4 @@ class MyLog {
     console.log(message_);
   }
 }
-module.exports.MyLog = MyLog;
+// module.exports.MyLog = MyLog;
