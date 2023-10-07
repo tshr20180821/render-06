@@ -1,8 +1,8 @@
 const express = require('express');
 const app = express();
 
-// const mu = require('./MyUtils.js');
-const myLog = require('./MyUtils.js').MyLog;
+const mu = require('./MyUtils.js');
+const myLog = mu.MyLog;
 
 app.get('/', (req, res) => {
   res.send('test');
