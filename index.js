@@ -6,7 +6,7 @@ const myLog = mu.MyLog;
 
 app.get('/', (req, res) => {
   res.send('test');
-  var logger = new myLog();
+  let logger = new myLog();
   logger.info('INFO message');
 });
 
