@@ -4,8 +4,12 @@ class MyLog {
   
   info(message_) {
     console.log(message_);
-    let e = new Error();
-    console.log(e.stack);
+    try {
+      let e = new Error();
+      console.log(e.stack);
+    } catch (err) {
+      console.log(err.toString());
+    }
   }
   
   warn(message_) {
