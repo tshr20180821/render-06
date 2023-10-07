@@ -5,7 +5,8 @@ const mu = require('./MyUtils.js');
 
 app.get('/', (req, res) => {
   res.send('test');
-  var cls = new mu.MyLog();
+  var logger = new mu.MyLog();
+  logger.info('INFO message');
 });
 
 app.listen(8080, () => {
