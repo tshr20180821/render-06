@@ -7,7 +7,7 @@ class MyLog {
     try {
       var e = new Error();
       var stack = e.stack;
-      // console.log(e.stack);
+      console.log(stack);
     } catch (err) {
       console.log(err.toString());
     }
