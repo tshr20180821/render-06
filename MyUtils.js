@@ -6,7 +6,7 @@ class MyLog {
     console.log(message_);
     try {
       var e = new Error();
-      var stack = e.stack;
+      var stack = e.stack.split("\n")[2];
       console.log(stack);
     } catch (err) {
       console.log(err.toString());
