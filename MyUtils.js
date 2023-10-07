@@ -1,3 +1,8 @@
+module.exports.get_logger = function ()
+{
+  return null;
+}
+
 module.exports.MyLog = class MyLog {
   constructor() {
   }
