@@ -19,6 +19,9 @@ class MyLog {
       }
     };
     this._loggly_options.agent = new https.Agent({ keepAlive: true });
+
+    // var dt = new Date('',)
+    console.log(Number('08'));
   }
   
   info(message_) {
