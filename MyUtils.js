@@ -8,7 +8,8 @@ class MyLog {
       method: 'POST',
       headers: {
         'content-type': 'text/plain; charset=utf-8',
-      };
+      }
+    };
     options.agent = new require('https').Agent({ keepAlive: true });
     this._request = require('https').request('https://logs-01.loggly.com/inputs/' + process.env.LOGGLY_TOKEN
                                              + '/tag/' + process.env.RENDER_EXTERNAL_HOSTNAME + ',' + process.env.RENDER_EXTERNAL_HOSTNAME + '_' + process.env.DEPLOY_DATETIME + '/',
