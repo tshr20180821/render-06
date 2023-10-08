@@ -20,8 +20,9 @@ class MyLog {
     };
     this._loggly_options.agent = new https.Agent({ keepAlive: true });
 
-    // var dt = new Date('',)
-    console.log(Number('08'));
+    var tmp = process.env.DEPLOY_DATETIME.match('/.{2}/g');
+    var dt = new Date(tmp[0] + tmp[1], tmp[2], tmp[3], tmp[4], tmp[5], tmp[6]);
+    console.log(dt);
   }
   
   info(message_) {
