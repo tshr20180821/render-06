@@ -6,7 +6,7 @@ class MyLog {
     this._regex = /(.+) .+\/(.+?):(\d+)/;
 
     this._loggly_options = {
-      protocol: 'https',
+      protocol: 'https:',
       port: 443,
       hostname: 'logs-01.loggly.com',
       path: '/inputs/' + process.env.LOGGLY_TOKEN
