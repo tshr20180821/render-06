@@ -1,7 +1,7 @@
 class MyLog {
   _regex;
   constructor() {
-    this._regex = /^.+?at (.+) .+\/(.+?):(\d+)/;
+    this._regex = /.+? at (.+) .+\/(.+?):(\d+)/;
   }
   
   info(message_) {
