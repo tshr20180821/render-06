@@ -17,7 +17,8 @@ class MyLog {
     try {
       var e = new Error();
       console.log(e.stack);
-      var stack = e.stack.split("\n")[2].substring(7);
+      // var level = e.stack.split("\n")[2].substring(7);
+      var stack = e.stack.split("\n")[3].substring(7);
       var match = stack.match(this._regex);
       console.log(match);
 
