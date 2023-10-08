@@ -21,8 +21,9 @@ class MyLog {
     this._loggly_options.agent = new https.Agent({ keepAlive: true });
 
     var tmp = '20230102030405'.match('/.{2}/g');
-    var dt = new Date(tmp[0] + tmp[1], tmp[2], tmp[3], tmp[4], tmp[5], tmp[6]);
-    console.log(dt);
+    console.log(tmp);
+    //var dt = new Date(tmp[0] + tmp[1], tmp[2], tmp[3], tmp[4], tmp[5], tmp[6]);
+    //console.log(dt);
   }
   
   info(message_) {
