@@ -1,7 +1,17 @@
 class MyLog {
   _regex;
+  _request;
   constructor() {
     this._regex = /(.+) .+\/(.+?):(\d+)/;
+    
+    this._request = require('https').request('https://logs-01.loggly.com/inputs/' + process.env.LOGGLY_TOKEN
+                                             + '/tag/' + process.env.RENDER_EXTERNAL_HOSTNAME + ',' + process.env.RENDER_EXTERNAL_HOSTNAME + '_' + process.env.DEPLOY_DATETIME + '/',
+                                             {
+                                               method: 'POST',
+                                               headers: {
+                                                 'content-type': 'text/plain; charset=utf-8',
+                                               }
+                                             });
   }
   
   info(message_) {
@@ -14,6 +24,9 @@ class MyLog {
   
   #output(level_, message_) {
     try {
+      this._request.write(message_);
+      this._request.end();
+      
       var e = new Error();
       var stack = e.stack.split("\n")[3].substring(7);
       var match = stack.match(this._regex);
