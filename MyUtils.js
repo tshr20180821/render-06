@@ -1,7 +1,7 @@
 class MyLog {
   regex;
   constructor() {
-    regex = /'.+\/(.+?):(\d+)'/;
+    regex = /.+\/(.+?):(\d+)/;
   }
   
   info(message_) {
