@@ -13,14 +13,10 @@ class MyLog {
   }
   
   #output(level_, message_) {
-    console.log(message_);
     try {
       var e = new Error();
-      console.log(e.stack);
       var stack = e.stack.split("\n")[3].substring(7);
-      console.log(stack);
       var match = stack.match(this._regex);
-      console.log(match);
 
       var dt = new Date();
       var log_header = dt.getFullYear() + '-' + ('0' + (dt.getMonth() + 1)).slice(-2) + '-' + ('0' + dt.getDate()).slice(-2) + ' '
