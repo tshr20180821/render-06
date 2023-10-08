@@ -9,8 +9,8 @@ class MyLog {
     try {
       var e = new Error();
       var stack = e.stack.split("\n")[2].substring(7);
-      // var match = stack.match(regex);
-      // console.log(match);
+      var match = stack.match(this._regex);
+      console.log(match);
     } catch (err) {
       console.log(err.toString());
     }
