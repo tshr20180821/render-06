@@ -1,4 +1,6 @@
 class MyLog {
+  const https = require("https");
+  
   _regex;
   _loggly_options;
 
