@@ -44,6 +44,7 @@ class MyLog {
         const request = https.request(this._loggly_options);
         request.write(log_header + ' ' + message_);
         request.end();
+        resolve();
       });
     } catch (err) {
       console.log(err.toString());
