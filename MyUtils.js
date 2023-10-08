@@ -36,7 +36,7 @@ class MyLog {
         + process.pid + ' ' + level_ + ' ' + match[2] + ' ' + match[3] + ' [' + match[1] + ']';
       console.log(log_header + ' ' + message_);
       this._request.write(log_header + ' ' + message_);
-      this._request.end();
+      // this._request.end();
     } catch (err) {
       console.log(err.toString());
     }
