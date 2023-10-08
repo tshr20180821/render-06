@@ -1,20 +1,22 @@
 class MyLog {
   _regex;
-  _request;
+  _loggly_options;
+
   constructor() {
     this._regex = /(.+) .+\/(.+?):(\d+)/;
 
-    const options = {
+    this._loggly_options = {
+      protocol: 'https',
+      port: 443,
+      hostname: 'logs-01.loggly.com',
+      path: '/inputs/' + process.env.LOGGLY_TOKEN
+        + '/tag/' + process.env.RENDER_EXTERNAL_HOSTNAME + ',' + process.env.RENDER_EXTERNAL_HOSTNAME + '_' + process.env.DEPLOY_DATETIME + '/',
       method: 'POST',
       headers: {
         'content-type': 'text/plain; charset=utf-8',
       }
     };
-    options.agent = new require('https').Agent({ keepAlive: true });
-    this._request = require('https').request('https://logs-01.loggly.com/inputs/' + process.env.LOGGLY_TOKEN
-                                             + '/tag/' + process.env.RENDER_EXTERNAL_HOSTNAME + ',' + process.env.RENDER_EXTERNAL_HOSTNAME + '_' + process.env.DEPLOY_DATETIME + '/',
-                                             options
-                                             );
+    this._loggly_options.agent = new require('https').Agent({ keepAlive: true });
   }
   
   info(message_) {
@@ -38,8 +40,9 @@ class MyLog {
         + ('00' + dt.getMilliseconds()).slice(-3) + ' ' + process.env.RENDER_EXTERNAL_HOSTNAME + ' ' + process.env.DEPLOY_DATETIME + ' '
         + process.pid + ' ' + level_ + ' ' + match[2] + ' ' + match[3] + ' [' + match[1] + ']';
       console.log(log_header + ' ' + message_);
-      this._request.write(log_header + ' ' + message_);
-      this._request.end();
+      const request = require('https').request(this._loggly_options);
+      request.write(log_header + ' ' + message_);
+      request.end();
     } catch (err) {
       console.log(err.toString());
     }
