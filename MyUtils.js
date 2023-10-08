@@ -1,5 +1,7 @@
 class MyLog {
+  regex;
   constructor() {
+    regex = new RegExp('.+\/(.+?):(\d+)');
   }
   
   info(message_) {
@@ -7,7 +9,8 @@ class MyLog {
     try {
       var e = new Error();
       var stack = e.stack.split("\n")[2].substring(7);
-      console.log(stack);
+      var match = stack.match(regex);
+      console.log(match);
     } catch (err) {
       console.log(err.toString());
     }
