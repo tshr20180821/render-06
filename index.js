@@ -7,7 +7,8 @@ const logger = mu.get_logger();
 app.get('/', (req, res) => {
   function app_get() {
     res.send('test');
-    logger.info('test message');
+    logger.info('test message 1');
+    logger.info('test message 2');
   }
   app_get();
 });
