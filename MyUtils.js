@@ -5,6 +5,14 @@ class MyLog {
   }
   
   info(message_) {
+    this.output(message_);
+  }
+  
+  warn(message_) {
+    this.output(message_);
+  }
+  
+  output(message_) {
     console.log(message_);
     try {
       var e = new Error();
@@ -21,10 +29,6 @@ class MyLog {
     } catch (err) {
       console.log(err.toString());
     }
-  }
-  
-  warn(message_) {
-    console.log(message_);
   }
 }
 
