@@ -1,18 +1,18 @@
 class MyLog {
   _regex;
   constructor() {
-    this._regex = .+?at (.+w) .+\/(.+?):(\d+);
+    this._regex = /.+?at (.+w) .+\/(.+?):(\d+)/;
   }
   
   info(message_) {
-    this.output('INFO', message_);
+    this.#output('INFO', message_);
   }
   
   warn(message_) {
-    this.output(message_);
+    this.#output(message_);
   }
   
-  output(level_, message_) {
+  #output(level_, message_) {
     console.log(message_);
     try {
       var e = new Error();
