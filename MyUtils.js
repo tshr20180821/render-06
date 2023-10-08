@@ -1,7 +1,7 @@
 class MyLog {
   _regex;
   constructor() {
-    this._regex = /.+? at (.+) .+\/(.+?):(\d+)/;
+    this._regex = /(.+) .+\/(.+?):(\d+)/;
   }
   
   info(message_) {
@@ -18,6 +18,7 @@ class MyLog {
       var e = new Error();
       console.log(e.stack);
       var stack = e.stack.split("\n")[3].substring(7);
+      console.log(stack);
       var match = stack.match(this._regex);
       console.log(match);
 
