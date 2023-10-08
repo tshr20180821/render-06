@@ -24,8 +24,6 @@ class MyLog {
   
   #output(level_, message_) {
     try {
-      this._request.write(message_);
-      this._request.end();
       
       var e = new Error();
       var stack = e.stack.split("\n")[3].substring(7);
@@ -37,6 +35,8 @@ class MyLog {
         + ('00' + dt.getMilliseconds()).slice(-3) + ' ' + process.env.RENDER_EXTERNAL_HOSTNAME + ' ' + process.env.DEPLOY_DATETIME + ' '
         + process.pid + ' ' + level_ + ' ' + match[2] + ' ' + match[3] + ' [' + match[1] + ']';
       console.log(log_header + ' ' + message_);
+      this._request.write(log_header + ' ' + message_);
+      this._request.end();
     } catch (err) {
       console.log(err.toString());
     }
