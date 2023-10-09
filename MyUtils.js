@@ -45,8 +45,9 @@ class MyLog {
           + process.pid + ' ' + level_ + ' ' + match[2] + ' ' + match[3] + ' [' + match[1] + ']';
         console.log(log_header + ' ' + message_);
         const request = https.request(this._loggly_options);
-        request.write(log_header + ' ' + message_);
-        request.end();
+        // request.write(log_header + ' ' + message_);
+        // request.end();
+        console.log(log_header + ' ' + message_);
         resolve();
       });
     } catch (err) {
