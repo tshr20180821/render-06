@@ -44,10 +44,9 @@ class MyLog {
           + ('00' + dt.getMilliseconds()).slice(-3) + ' ' + process.env.RENDER_EXTERNAL_HOSTNAME + ' ' + process.env.DEPLOY_DATETIME + ' '
           + process.pid + ' ' + level_ + ' ' + match[2] + ' ' + match[3] + ' [' + match[1] + ']';
         console.log(log_header + ' ' + message_);
-        const request = https.request(this._loggly_options);
+        // const request = https.request(this._loggly_options);
         // request.write(log_header + ' ' + message_);
         // request.end();
-        console.log(log_header + ' ' + message_);
         resolve();
       });
     } catch (err) {
