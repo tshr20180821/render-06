@@ -5,7 +5,7 @@ RUN yarn install --non-interactive
 
 WORKDIR /usr/src/app
 
-RUN ls -lang /etc/
+RUN whereis logger
 
 COPY ./*.js /usr/src/app/
 
